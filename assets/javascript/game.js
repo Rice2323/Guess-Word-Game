@@ -32,7 +32,7 @@ function startGame(){
 
     guessesLeft = 7;
     lettersNeeded = 0;
-    letterGuessed = [];
+    guessedLetters = [];
     dashName = [];
 
     selectedWord = wordSet[Math.floor(Math.random() * wordSet.length)];
@@ -68,9 +68,9 @@ var guess = event.key.toUpperCase();
            
             if ( dashName[x] === guess) {
 
-                letterLocation.push(guess);
+                // letterLocation.push(guess);
                 lettersNeeded--;
-                dashName[letterLocation[x]] = guess ;
+                dashName.push( guess) ;
             };
         };
 
@@ -78,6 +78,7 @@ var guess = event.key.toUpperCase();
         }
    else{ 
        guessesLeft--;
+       guessedLetters.push(guess);
 
        myScore();
 
