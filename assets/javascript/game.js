@@ -58,8 +58,8 @@ function startGame(){
  startGame();
 
 document.onkeyup = function(event) {
-var guess = event.key;
-    guess.toLowerCase();
+var guess = event.key.toUpperCase();
+    
 
 
 
