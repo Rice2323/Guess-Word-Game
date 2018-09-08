@@ -9,6 +9,7 @@ var selectedWord = [];
 var letterGuessed = []; 
 var letterLocation = []; 
 var lettersNeeded = 0;
+var match = false ; 
  
 
 var totalWins = document.getElementById("wins");
@@ -59,30 +60,34 @@ function startGame(){
 
 document.onkeyup = function(event) {
 var guess = event.key.toUpperCase();
+console.log(guess)
     
 
 
 
-    if (selectedWord.indexOf(guess) > -1){
-        for ( x = 0 ; x < dashName.length ; x++) {
+        for (var i = 0 ; i < dashName.length ; i++) {
            
-            if ( dashName[x] === guess) {
+            if ( selectedWord[i] === guess) {
 
-                // letterLocation.push(guess);
+            
                 lettersNeeded--;
-                dashName.push( guess) ;
-            };
-        };
-
-       
+                dashName[i]= guess ;
+                match = true;
+            }
         }
-   else{ 
-       guessesLeft--;
-       guessedLetters.push(guess);
 
-       myScore();
+        if (match === false) {
 
-   } 
+            guessesLeft--;
+            guessedLetters.push(guess);
+            console.log(guessesLeft)
+         
+            myScore();
+        }
+
+        wordHolder.textContent = dashName.join("");
+        
+   
 
    if (guessesLeft === 0){
 
@@ -91,7 +96,7 @@ var guess = event.key.toUpperCase();
        startGame();
 
    }
-   if (lettersNeeded === 0){
+   else if (lettersNeeded === 0){
 
         alert("WINNER! WINNER! CHICKEN DINNER!!!");
 

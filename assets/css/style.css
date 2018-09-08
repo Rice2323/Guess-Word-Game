@@ -28,6 +28,8 @@ body {
     border: dashed  rgba(187, 187, 8, 0.959);
     color:  blue;
     font-size: 25px;
+    background: white;
+    opacity: .75;
 }
 
 .content3 {
