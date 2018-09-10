@@ -80,7 +80,7 @@ console.log(guess)
 
             guessesLeft--;
             guessedLetters.push(guess);
-            console.log(guessesLeft)
+            console.log(guessesLeft);
          
             myScore();
         }
@@ -97,6 +97,8 @@ console.log(guess)
 
    }
    else if (lettersNeeded === 0){
+
+        
 
         alert("WINNER! WINNER! CHICKEN DINNER!!!");
 
